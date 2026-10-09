@@ -1,0 +1,31 @@
+# Actividad 9 — Identificación estocástica de sistemas
+
+## Qué incluye
+- Matriz de regresores Phi y vector Y mostrados en pantalla.
+- Estimación de a, b, c y d por mínimos cuadrados usando `numpy.linalg.lstsq`.
+- Gráfica de respuesta real frente a estimada recursivamente.
+- Métricas SSE, RMSE y R² de predicción a un paso.
+- Gráfica y tabla de residuos.
+- Edición de los datos desde la barra lateral y descarga de resultados en CSV.
+- Aviso de rango de la matriz para detectar parámetros no identificables.
+
+## Cómo ejecutarlo en Visual Studio Code
+1. Descomprime la carpeta y ábrela en VS Code.
+2. Abre la terminal en esa carpeta.
+3. Crea un entorno virtual (opcional pero recomendado):
+   - Windows: `py -m venv .venv`
+   - PowerShell: `.\.venv\Scripts\Activate.ps1`
+4. Instala las librerías:
+   `python -m pip install -r requirements.txt`
+5. Inicia la aplicación:
+   `python -m streamlit run app_actividad9.py`
+6. Se abrirá una pestaña en el navegador. Si no, copia la dirección local que aparece en la terminal.
+
+## Nota importante sobre la ecuación
+En la captura aparece `y[n] = a y[n-1] + b y[n-2] + c x[n-1] + d x[n-1]`.
+El último término parece repetido. La aplicación usa por defecto la forma convencional:
+`y[n] = a y[n-1] + b y[n-2] + c x[n-1] + d x[n-2]`.
+En la barra lateral se puede seleccionar la estructura que repite `x[n-1]`. En esa segunda estructura, c y d no pueden identificarse individualmente: solo se puede estimar su suma, porque las dos columnas de entrada son iguales.
+
+## Datos incluidos
+Se cargaron los valores visibles en la tabla de la actividad para n = 0,...,12. Puedes editarlos en la barra lateral si tu profesor comparte datos más precisos.
